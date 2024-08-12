@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Referral Form</title>
+</head>
+<body>
+    <form id="referralForm">
+        <h1>Referral Form</h1>
+        
+        <!-- Section for Names -->
+        <div>
+            <label for="surname">Last Name:</label>
+            <input type="text" id="surname" name="surname" required>
+
+            <label for="givenNames">Given Names:</label>
+            <input type="text" id="givenNames" name="givenNames" required>
+
+            <label for="otherNames">All Other Surnames and Given Names:</label>
+            <input type="text" id="otherNames" name="otherNames">
+        </div>
+
+        <!-- Marital Status Section -->
+        <div>
+            <label for="maritalStatus">Marital Status:</label>
+            <select id="maritalStatus" name="maritalStatus" required>
+                <option value="single">Single</option>
+                <option value="married">Married</option>
+                <option value="widowed">Widowed</option>
+                <option value="divorced">Divorced</option>
+                <option value="separated">Separated</option>
+                <option value="common-law">Common-Law</option>
+            </select>
+
+            <label for="statusChange">Any change in the past 5 years?</label>
+            <input type="radio" id="statusChangeYes" name="statusChange" value="yes"> Yes
+            <input type="radio" id="statusChangeNo" name="statusChange" value="no"> No
+
+            <div id="previousStatus">
+                <label for="previousMaritalStatus">Previous Marital Status:</label>
+                <select id="previousMaritalStatus" name="previousMaritalStatus">
+                    <option value="single">Single</option>
+                    <option value="married">Married</option>
+                    <option value="widowed">Widowed</option>
+                    <option value="divorced">Divorced</option>
+                    <option value="separated">Separated</option>
+                    <option value="common-law">Common-Law</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Employment Status Section -->
+        <div>
+            <label for="employmentStatus">Employment Status:</label>
+            <select id="employmentStatus" name="employmentStatus" required>
+                <option value="full-time">Employed – full-time</option>
+                <option value="part-time">Employed – part-time</option>
+                <option value="seasonal">Employed – seasonal</option>
+                <option value="self-employed">Self-employed</option>
+                <option value="retired">Retired</option>
+                <option value="student">Student</option>
+                <option value="not-employed">Not employed</option>
+            </select>
+        </div>
+
+        <!-- Employer Information -->
+        <div>
+            <label for="employer">Present or Most Recent Employer:</label>
+            <input type="text" id="employer" name="employer" required>
+
+            <label for="employmentPeriod">Period of Employment:</label>
+            <input type="text" id="employmentPeriod" name="employmentPeriod">
+        </div>
+
+        <!-- Cause of Financial Difficulties -->
+        <div>
+            <label>Cause of Financial Difficulties:</label>
+            <div>
+                <input type="checkbox" id="lossOfIncome" name="financialDifficulties" value="Loss of Income">
+                <label for="lossOfIncome">Loss of Income</label>
+            </div>
+            <div>
+                <input type="checkbox" id="medicalReasons" name="financialDifficulties" value="Medical Reasons">
+                <label for="medicalReasons">Medical Reasons</label>
+            </div>
+            <!-- Add more checkboxes as needed -->
+            <div>
+                <input type="checkbox" id="other" name="financialDifficulties" value="Other">
+                <label for="other">Other (Please specify):</label>
+                <input type="text" id="otherDetails" name="otherDetails">
+            </div>
+        </div>
+
+        <!-- Transfer of Assets Questions -->
+        <div>
+            <label>In the last 5 years, have you sold or disposed partially or all of any assets?</label>
+            <input type="radio" id="soldAssetsYes" name="soldAssets" value="yes"> Yes
+            <input type="radio" id="soldAssetsNo" name="soldAssets" value="no"> No
+        </div>
+
+        <!-- Professional Advice Section -->
+        <div>
+            <label>In the last 6 months, have you received professional advice regarding your financial situation?</label>
+            <input type="radio" id="receivedAdviceYes" name="receivedAdvice" value="yes"> Yes
+            <input type="radio" id="receivedAdviceNo" name="receivedAdvice" value="no"> No
+
+            <div id="adviceDetails">
+                <label for="advisorName">Name of the Advisor:</label>
+                <input type="text" id="advisorName" name="advisorName">
+
+                <label for="advisorFirm">Firm/Organization:</label>
+                <input type="text" id="advisorFirm" name="advisorFirm">
+
+                <label for="advisorAddress">Address:</label>
+                <input type="text" id="advisorAddress" name="advisorAddress">
+
+                <label for="advisorWebsite">Website:</label>
+                <input type="url" id="advisorWebsite" name="advisorWebsite">
+
+                <label for="amountPaid">Total Amount Paid:</label>
+                <input type="number" id="amountPaid" name="amountPaid">
+
+                <label for="amountRemaining">Total Amount Remaining:</label>
+                <input type="number" id="amountRemaining" name="amountRemaining">
+            </div>
+        </div>
+
+        <!-- Business Information Section -->
+        <div>
+            <label for="businessType">Type of Business/Industry:</label>
+            <input type="text" id="businessType" name="businessType">
+
+            <label for="ownershipPercentage">Percentage of Ownership:</label>
+            <input type="number" id="ownershipPercentage" name="ownershipPercentage">
+
+            <label for="maxEmployees">Maximum Number of Employees in the Past 12 Months:</label>
+            <input type="number" id="maxEmployees" name="maxEmployees">
+        </div>
+
+        <!-- Submission Button -->
+        <div>
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+
+    <script>
+        // Add JavaScript for dynamic parts like showing/hiding sections based on inputs
+        document.getElementById("statusChangeYes").addEventListener("click", function() {
+            document.getElementById("previousStatus").style.display = "block";
+        });
+        document.getElementById("statusChangeNo").addEventListener("click", function() {
+            document.getElementById("previousStatus").style.display = "none";
+        });
+
+        document.getElementById("receivedAdviceYes").addEventListener("click", function() {
+            document.getElementById("adviceDetails").style.display = "block";
+        });
+        document.getElementById("receivedAdviceNo").addEventListener("click", function() {
+            document.getElementById("adviceDetails").style.display = "none";
+        });
+    </script>
+</body>
+</html>
